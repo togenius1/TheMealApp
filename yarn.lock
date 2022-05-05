@@ -782,7 +782,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/plugin-transform-object-assign@npm:^7.0.0":
+"@babel/plugin-transform-object-assign@npm:^7.0.0, @babel/plugin-transform-object-assign@npm:^7.16.7":
   version: 7.16.7
   resolution: "@babel/plugin-transform-object-assign@npm:7.16.7"
   dependencies:
@@ -985,7 +985,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/preset-typescript@npm:^7.13.0":
+"@babel/preset-typescript@npm:^7.13.0, @babel/preset-typescript@npm:^7.16.7":
   version: 7.16.7
   resolution: "@babel/preset-typescript@npm:7.16.7"
   dependencies:
@@ -1077,6 +1077,15 @@ __metadata:
   bin:
     watch: cli.js
   checksum: 88f395ca0af2f3c0665b8ce7bb29e83647ec5d141e8735712aeeee4117081555436712966b6957aa1c461f6f826a4d23b0034e379c443a10e919f81c8748bf29
+  languageName: node
+  linkType: hard
+
+"@egjs/hammerjs@npm:^2.0.17":
+  version: 2.0.17
+  resolution: "@egjs/hammerjs@npm:2.0.17"
+  dependencies:
+    "@types/hammerjs": ^2.0.36
+  checksum: 8945137cec5837edd70af3f2e0ea621543eb0aa3b667e6269ec6485350f4d120c2434b37c7c30b1cf42a65275dd61c1f24626749c616696d3956ac0c008c4766
   languageName: node
   linkType: hard
 
@@ -1741,6 +1750,25 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@react-navigation/drawer@npm:^6.4.1":
+  version: 6.4.1
+  resolution: "@react-navigation/drawer@npm:6.4.1"
+  dependencies:
+    "@react-navigation/elements": ^1.3.3
+    color: ^3.1.3
+    warn-once: ^0.1.0
+  peerDependencies:
+    "@react-navigation/native": ^6.0.0
+    react: "*"
+    react-native: "*"
+    react-native-gesture-handler: ">= 1.0.0"
+    react-native-reanimated: ">= 1.0.0"
+    react-native-safe-area-context: ">= 3.0.0"
+    react-native-screens: ">= 3.0.0"
+  checksum: 134099772c45d1a3b2b14a1f31ef6ebdb1137358878d5c89eb968e4f8ab0f11852452de1b91d2656d10b4a82c4a32e2d76cc48b5bc88b920ebc1270d52a32aac
+  languageName: node
+  linkType: hard
+
 "@react-navigation/elements@npm:^1.3.3":
   version: 1.3.3
   resolution: "@react-navigation/elements@npm:1.3.3"
@@ -1918,6 +1946,20 @@ __metadata:
   dependencies:
     "@types/node": "*"
   checksum: d076bb61f45d0fc42dee496ef8b1c2f8742e15d5e47e90e20d0243386e426c04d4efd408a48875ab432f7960b4ce3414db20ed0fbbfc7bcc89d84e574f6e045a
+  languageName: node
+  linkType: hard
+
+"@types/hammerjs@npm:^2.0.36":
+  version: 2.0.41
+  resolution: "@types/hammerjs@npm:2.0.41"
+  checksum: d16fbd688fc9b18cc270abe8dea8d4c50ef7bd8375e593d92c233d299387933a6b003c8db69819344833052458bc5f9ef1b472001277a49f095928d184356006
+  languageName: node
+  linkType: hard
+
+"@types/invariant@npm:^2.2.35":
+  version: 2.2.35
+  resolution: "@types/invariant@npm:2.2.35"
+  checksum: af1b624057c89789ed0917838fea3d42bb0c101cc22b829a24d8777c678be3bc79d6ae05992a13bdf607b94731262467a2e62a809602ea1f7eea5e8c2242660d
   languageName: node
   linkType: hard
 
@@ -4996,6 +5038,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"hoist-non-react-statics@npm:^3.3.0":
+  version: 3.3.2
+  resolution: "hoist-non-react-statics@npm:3.3.2"
+  dependencies:
+    react-is: ^16.7.0
+  checksum: b1538270429b13901ee586aa44f4cc3ecd8831c061d06cb8322e50ea17b3f5ce4d0e2e66394761e6c8e152cd8c34fb3b4b690116c6ce2bd45b18c746516cb9e8
+  languageName: node
+  linkType: hard
+
 "hosted-git-info@npm:^2.1.4":
   version: 2.8.9
   resolution: "hosted-git-info@npm:2.8.9"
@@ -6536,6 +6587,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"lodash.isequal@npm:^4.5.0":
+  version: 4.5.0
+  resolution: "lodash.isequal@npm:4.5.0"
+  checksum: da27515dc5230eb1140ba65ff8de3613649620e8656b19a6270afe4866b7bd461d9ba2ac8a48dcc57f7adac4ee80e1de9f965d89d4d81a0ad52bb3eec2609644
+  languageName: node
+  linkType: hard
+
 "lodash.merge@npm:^4.6.2":
   version: 4.6.2
   resolution: "lodash.merge@npm:4.6.2"
@@ -6557,7 +6615,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"lodash@npm:^4.17.10, lodash@npm:^4.17.14, lodash@npm:^4.17.15, lodash@npm:^4.7.0":
+"lodash@npm:^4.17.10, lodash@npm:^4.17.14, lodash@npm:^4.17.15, lodash@npm:^4.17.21, lodash@npm:^4.7.0":
   version: 4.17.21
   resolution: "lodash@npm:4.17.21"
   checksum: eb835a2e51d381e561e508ce932ea50a8e5a68f4ebdd771ea240d3048244a8d13658acbd502cd4829768c56f2e16bdd4340b9ea141297d472517b83868e677f7
@@ -8097,7 +8155,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-is@npm:^16.13.0, react-is@npm:^16.13.1":
+"react-is@npm:^16.13.0, react-is@npm:^16.13.1, react-is@npm:^16.7.0":
   version: 16.13.1
   resolution: "react-is@npm:16.13.1"
   checksum: f7a19ac3496de32ca9ae12aa030f00f14a3d45374f1ceca0af707c831b2a6098ef0d6bdae51bd437b0a306d7f01d4677fcc8de7c0d331eb47ad0f46130e53c5f
@@ -8116,10 +8174,45 @@ __metadata:
   languageName: node
   linkType: hard
 
+"react-native-gesture-handler@npm:^2.4.1":
+  version: 2.4.1
+  resolution: "react-native-gesture-handler@npm:2.4.1"
+  dependencies:
+    "@egjs/hammerjs": ^2.0.17
+    hoist-non-react-statics: ^3.3.0
+    invariant: ^2.2.4
+    lodash: ^4.17.21
+    prop-types: ^15.7.2
+  peerDependencies:
+    react: "*"
+    react-native: "*"
+  checksum: a0f854faf2664f48a41551e73db852a98f04ce7d8c372aa1fb25f95aa1a98edc1fcaffca2c68c006e8e0d6e8c3d28d8cd1b125aa6860952a2e0026a3f23fdafc
+  languageName: node
+  linkType: hard
+
 "react-native-gradle-plugin@npm:^0.0.6":
   version: 0.0.6
   resolution: "react-native-gradle-plugin@npm:0.0.6"
   checksum: 185ad348931ef4f58065b50bbf80558af668b1ef11c31067aab7f1cd85b18809a62fcf0b7a18444726dacd098042771a570c0ac76bb8976c3ccbe7c86cff0e11
+  languageName: node
+  linkType: hard
+
+"react-native-reanimated@npm:^2.8.0":
+  version: 2.8.0
+  resolution: "react-native-reanimated@npm:2.8.0"
+  dependencies:
+    "@babel/plugin-transform-object-assign": ^7.16.7
+    "@babel/preset-typescript": ^7.16.7
+    "@types/invariant": ^2.2.35
+    invariant: ^2.2.4
+    lodash.isequal: ^4.5.0
+    setimmediate: ^1.0.5
+    string-hash-64: ^1.0.3
+  peerDependencies:
+    "@babel/core": ^7.0.0-0
+    react: "*"
+    react-native: "*"
+  checksum: 6409a941a177d04d9091953a05f493d4924eb0d3e2a4b24cf83bb20460b985f89dd879f0ab7337655dba6a3183ca50cc2ad2b3ea1c505cdc1eed6c5ee1296b59
   languageName: node
   linkType: hard
 
@@ -8814,6 +8907,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"setimmediate@npm:^1.0.5":
+  version: 1.0.5
+  resolution: "setimmediate@npm:1.0.5"
+  checksum: c9a6f2c5b51a2dabdc0247db9c46460152ffc62ee139f3157440bd48e7c59425093f42719ac1d7931f054f153e2d26cf37dfeb8da17a794a58198a2705e527fd
+  languageName: node
+  linkType: hard
+
 "setprototypeof@npm:1.2.0":
   version: 1.2.0
   resolution: "setprototypeof@npm:1.2.0"
@@ -9206,6 +9306,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"string-hash-64@npm:^1.0.3":
+  version: 1.0.3
+  resolution: "string-hash-64@npm:1.0.3"
+  checksum: 79de8431b4fa3e85a2429cd52a34f7948221ff167b7a094e05d6bcfd0173474b232e0c9845c96f74b0d7b6b0c8bbe2c3532a4cacb21635293ef0cf3cc8e77f06
+  languageName: node
+  linkType: hard
+
 "string-length@npm:^4.0.1":
   version: 4.0.2
   resolution: "string-length@npm:4.0.2"
@@ -9469,6 +9576,7 @@ __metadata:
     "@babel/runtime": ^7.12.5
     "@react-native-community/eslint-config": ^2.0.0
     "@react-navigation/bottom-tabs": ^6.3.1
+    "@react-navigation/drawer": ^6.4.1
     "@react-navigation/material-bottom-tabs": ^6.2.1
     "@react-navigation/native": ^6.0.10
     "@react-navigation/native-stack": ^6.6.2
@@ -9483,6 +9591,8 @@ __metadata:
     metro-react-native-babel-preset: ^0.67.0
     react: 17.0.2
     react-native: 0.68.1
+    react-native-gesture-handler: ^2.4.1
+    react-native-reanimated: ^2.8.0
     react-native-safe-area-context: ^4.2.5
     react-native-screens: ^3.13.1
     react-native-vector-icons: ^9.1.0

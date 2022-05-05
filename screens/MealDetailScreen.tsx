@@ -1,15 +1,7 @@
-import React, {useState} from 'react';
-import {
-  ScrollView,
-  View,
-  Image,
-  Text,
-  Platform,
-  Pressable,
-  StyleSheet,
-} from 'react-native';
+import React, {useLayoutEffect} from 'react';
+import {ScrollView, View, Image, Text, StyleSheet} from 'react-native';
 // import {HeaderButtons, Item} from 'react-navigation-header-buttons';
-import Ionicons from 'react-native-vector-icons/Ionicons';
+// import Ionicons from 'react-native-vector-icons/Ionicons';
 
 import List from '../components/MealDetail/List';
 import Subtitle from '../components/MealDetail/Subtitle';
@@ -18,8 +10,7 @@ import {MEALS} from '../data/dummy-data';
 import DefaultText from '../components/DefaultText';
 import {RouteMealDetail, NavigationMealDetail} from '../types';
 import Meal from '../models/meal';
-import Colors from '../constants/Colors';
-
+import IconButton from '../components/IconButton';
 type Props = {
   route: RouteMealDetail;
   navigation: NavigationMealDetail;
@@ -39,28 +30,25 @@ const MealDetailScreen = ({route, navigation}: Props) => {
 
   const selectedMeal: Meal | undefined = MEALS.find(meal => meal.id === mealId);
 
-  React.useEffect(() => {
-    const unsubscribe = navigation.addListener('focus', () => {
-      // The screen is focused: Call any action
-      navigation.setOptions({
-        headerTitle: selectedMeal?.title,
-        headerRight: () => (
-          <View style={styles.favorites}>
-            <Ionicons name="star" size={22} color={'white'} />
-            <Ionicons
-              name="star-outline"
-              size={22}
-              color={'white'}
-              style={{marginLeft: 5}}
-            />
-          </View>
-        ),
-      });
-    });
+  function headerButtonPressHandler() {
+    console.log('Pressed!');
+  }
 
-    // Return the function to unsubscribe from the event so it gets removed on unmount
-    return unsubscribe;
-  }, [navigation, selectedMeal?.title]);
+  useLayoutEffect(() => {
+    navigation.setOptions({
+      headerRight: () => {
+        return (
+          <IconButton
+            name="star"
+            size={24}
+            color="white"
+            style="null"
+            onPress={headerButtonPressHandler}
+          />
+        );
+      },
+    });
+  }, [navigation]);
 
   return (
     <ScrollView style={styles.rootContainer}>

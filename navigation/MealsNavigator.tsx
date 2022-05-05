@@ -3,10 +3,10 @@ import {Platform, View, Text} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import {createMaterialBottomTabNavigator} from '@react-navigation/material-bottom-tabs';
-
 import {createDrawerNavigator} from '@react-navigation/drawer';
-import type {StackNavigationOptions} from '@react-navigation/stack';
+// import {createMaterialBottomTabNavigator} from '@react-navigation/material-bottom-tabs';
+
+// import type {StackNavigationOptions} from '@react-navigation/stack';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
 import CategoriesScreen from '../screens/CategoriesScreen';
@@ -15,7 +15,7 @@ import MealDetailScreen from '../screens/MealDetailScreen';
 import FavoritesScreen from '../screens/FavoritesScreen';
 import FiltersScreen from '../screens/FiltersScreen';
 import Colors from '../constants/Colors';
-import {RootStackParamList} from '../types';
+import {RootStackParamList, DrawerParamList} from '../types';
 
 const defaultStackNavOptions = {
   headerStyle: {
@@ -29,13 +29,14 @@ const defaultStackNavOptions = {
 };
 
 const RootStack = createNativeStackNavigator<RootStackParamList>();
+const Drawer = createDrawerNavigator<DrawerParamList>();
 
 function MealsStackNavigator() {
   return (
     <RootStack.Navigator screenOptions={defaultStackNavOptions}>
       <RootStack.Screen
-        name="MealsCategories"
-        component={CategoriesScreen}
+        name="Drawer"
+        component={DrawerNavigator}
         options={{
           title: 'All Categories',
         }}
@@ -46,20 +47,20 @@ function MealsStackNavigator() {
   );
 }
 
-// function FavNavigator() {
-//   return (
-//     <RootStack.Navigator>
-//       <RootStack.Screen name="Favorites" component={FavoritesScreen} />
-//       <RootStack.Screen name="MealDetail" component={MealDetailScreen} />
-//     </RootStack.Navigator>
-//   );
-// }
+function DrawerNavigator() {
+  return (
+    <Drawer.Navigator>
+      <Drawer.Screen name="Categories" component={CategoriesScreen} />
+      <Drawer.Screen name="Favorites" component={FavoritesScreen} />
+    </Drawer.Navigator>
+  );
+}
 
-const Tab = createBottomTabNavigator();
+const BottomTab = createBottomTabNavigator();
 
 function MealsTabNavigator() {
   return (
-    <Tab.Navigator
+    <BottomTab.Navigator
       screenOptions={{
         headerShown: false,
         tabBarActiveTintColor: Colors.accentColor,
@@ -67,7 +68,7 @@ function MealsTabNavigator() {
           backgroundColor: Colors.primaryColor,
         },
       }}>
-      <Tab.Screen
+      <BottomTab.Screen
         name="Meals"
         component={MealsStackNavigator}
         options={{
@@ -80,7 +81,7 @@ function MealsTabNavigator() {
           ),
         }}
       />
-      <Tab.Screen
+      <BottomTab.Screen
         name="Favorites"
         component={FavoritesScreen}
         options={{
@@ -89,7 +90,7 @@ function MealsTabNavigator() {
           ),
         }}
       />
-    </Tab.Navigator>
+    </BottomTab.Navigator>
   );
 }
 

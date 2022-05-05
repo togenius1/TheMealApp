@@ -21,10 +21,9 @@ const FavoritesScreen = ({navigation}: Props) => {
       navigation.setOptions({
         headerShown: true,
         headerTitle: 'Your Favorites',
-        headerTintColor:
-          Platform.OS === 'android' ? 'white' : Colors.primaryColor,
+        headerTintColor: 'white',
         headerStyle: {
-          backgroundColor: Platform.OS === 'android' ? Colors.primaryColor : '',
+          backgroundColor: Colors.primaryColor,
         },
       });
     });
