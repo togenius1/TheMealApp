@@ -39,6 +39,7 @@ function MealsStackNavigator() {
         component={DrawerNavigator}
         options={{
           title: 'All Categories',
+          headerShown: false,
         }}
       />
       <RootStack.Screen name="MealsOverview" component={MealsOverviewScreen} />
@@ -49,9 +50,13 @@ function MealsStackNavigator() {
 
 function DrawerNavigator() {
   return (
-    <Drawer.Navigator>
+    <Drawer.Navigator screenOptions={defaultStackNavOptions}>
       <Drawer.Screen name="Categories" component={CategoriesScreen} />
-      <Drawer.Screen name="Favorites" component={FavoritesScreen} />
+      <Drawer.Screen
+        name="Favorites"
+        component={FavoritesScreen}
+        options={{backgroundColor: 'black'}}
+      />
     </Drawer.Navigator>
   );
 }
