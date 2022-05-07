@@ -1,54 +1,54 @@
-import React from 'react';
-import {Platform} from 'react-native';
-// import { HeaderButtons, Item } from 'react-navigation-header-buttons';
+import React, {useLayoutEffect} from 'react';
+import {StyleSheet, View, Text} from 'react-native';
+import {useSelector, useDispatch} from 'react-redux';
 
-// import HeaderButton from '../components/HeaderButton';
-import MealList from '../components/MealList';
+import MealsList from '../components/MealList/MealsList';
+// import {FavoritesContext} from '../store/context/favorites-context';
 import {MEALS} from '../data/dummy-data';
+import {RootState} from '../store/redux/store';
+
 import {NavigationCategoryMeals} from '../types';
-import Colors from '../constants/Colors';
 
 type Props = {
   navigation: NavigationCategoryMeals;
 };
 
 const FavoritesScreen = ({navigation}: Props) => {
-  const favMeals = MEALS.filter(meal => meal.id === 'm1' || meal.id === 'm2');
+  // const favoriteMealsCtx = useContext(FavoritesContext);
+  const favoriteMealIds = useSelector(
+    (state: RootState) => state.favoriteMeals.ids,
+  );
 
-  React.useEffect(() => {
-    const unsubscribe = navigation.addListener('focus', () => {
-      // The screen is focused: Call any action
-      navigation.setOptions({
-        headerShown: true,
-        headerTitle: 'Your Favorites',
-        headerTintColor: 'white',
-        headerStyle: {
-          backgroundColor: Colors.primaryColor,
-        },
-      });
+  const favoriteMeals = MEALS.filter(meal => favoriteMealIds.includes(meal.id));
+
+  useLayoutEffect(() => {
+    navigation.setOptions({
+      headerShown: true,
     });
-    // Return the function to unsubscribe from the event so it gets removed on unmount
-    return unsubscribe;
   }, [navigation]);
 
-  return <MealList listData={favMeals} navigation={navigation} />;
+  if (favoriteMeals.length === 0) {
+    return (
+      <View style={styles.rootContainer}>
+        <Text style={styles.text}>You have no favorite meals yet.</Text>
+      </View>
+    );
+  }
+
+  return <MealsList listData={favoriteMeals} navigation={navigation} />;
 };
 
-// FavoritesScreen.navigationOptions = navData => {
-//   return {
-//     headerTitle: 'Your Favorites',
-//     // headerLeft: (
-//     // <HeaderButtons HeaderButtonComponent={HeaderButton}>
-//     //   <Item
-//     //     title="Menu"
-//     //     iconName="ios-menu"
-//     //     onPress={() => {
-//     //       navData.navigation.toggleDrawer();
-//     //     }}
-//     //   />
-//     // </HeaderButtons>
-//     // )
-//   };
-// };
-
 export default FavoritesScreen;
+
+const styles = StyleSheet.create({
+  rootContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  text: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    color: 'white',
+  },
+});

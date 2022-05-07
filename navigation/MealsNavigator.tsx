@@ -8,6 +8,7 @@ import {createDrawerNavigator} from '@react-navigation/drawer';
 
 // import type {StackNavigationOptions} from '@react-navigation/stack';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import Ionicons from 'react-native-vector-icons/Ionicons';
 
 import CategoriesScreen from '../screens/CategoriesScreen';
 import MealsOverviewScreen from '../screens/MealsOverviewScreen';
@@ -17,15 +18,30 @@ import FiltersScreen from '../screens/FiltersScreen';
 import Colors from '../constants/Colors';
 import {RootStackParamList, DrawerParamList} from '../types';
 
-const defaultStackNavOptions = {
+const defaultStackStyle = {
+  headerTintColor: 'white',
   headerStyle: {
     backgroundColor: Colors.primaryColor,
   },
   contentStyle: {
     backgroundColor: '#3f2f25',
   },
+};
+
+const defaultDrawerStyle = {
   headerTintColor: 'white',
-  // headerTitle: 'All Categories',
+  headerStyle: {
+    backgroundColor: Colors.primaryColor,
+  },
+  sceneContainerStyle: {
+    backgroundColor: '#3f2f25',
+  },
+  drawerContentStyle: {
+    backgroundColor: Colors.primaryColor,
+  },
+  drawerInactiveTintColor: 'white',
+  drawerActiveTintColor: Colors.primaryColor,
+  drawerActiveBackgroundColor: '#e4baa1',
 };
 
 const RootStack = createNativeStackNavigator<RootStackParamList>();
@@ -33,7 +49,7 @@ const Drawer = createDrawerNavigator<DrawerParamList>();
 
 function MealsStackNavigator() {
   return (
-    <RootStack.Navigator screenOptions={defaultStackNavOptions}>
+    <RootStack.Navigator screenOptions={defaultStackStyle}>
       <RootStack.Screen
         name="Drawer"
         component={DrawerNavigator}
@@ -43,19 +59,36 @@ function MealsStackNavigator() {
         }}
       />
       <RootStack.Screen name="MealsOverview" component={MealsOverviewScreen} />
-      <RootStack.Screen name="MealDetail" component={MealDetailScreen} />
+      <RootStack.Screen
+        name="MealDetail"
+        component={MealDetailScreen}
+        options={{title: 'About the Meal'}}
+      />
     </RootStack.Navigator>
   );
 }
 
 function DrawerNavigator() {
   return (
-    <Drawer.Navigator screenOptions={defaultStackNavOptions}>
-      <Drawer.Screen name="Categories" component={CategoriesScreen} />
+    <Drawer.Navigator screenOptions={defaultDrawerStyle}>
+      <Drawer.Screen
+        name="Categories"
+        component={CategoriesScreen}
+        options={{
+          title: 'All Categories',
+          drawerIcon: ({color, size}) => (
+            <Ionicons name="list" color={color} size={size} />
+          ),
+        }}
+      />
       <Drawer.Screen
         name="Favorites"
         component={FavoritesScreen}
-        options={{backgroundColor: 'black'}}
+        options={{
+          drawerIcon: ({color, size}) => (
+            <Ionicons name="star" color={color} size={size} />
+          ),
+        }}
       />
     </Drawer.Navigator>
   );
@@ -68,8 +101,12 @@ function MealsTabNavigator() {
     <BottomTab.Navigator
       screenOptions={{
         headerShown: false,
+        headerTintColor: 'white',
         tabBarActiveTintColor: Colors.accentColor,
         tabBarStyle: {
+          backgroundColor: Colors.primaryColor,
+        },
+        headerStyle: {
           backgroundColor: Colors.primaryColor,
         },
       }}>

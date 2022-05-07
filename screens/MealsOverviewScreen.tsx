@@ -1,7 +1,7 @@
 import React from 'react';
 
 import {CATEGORIES, MEALS} from '../data/dummy-data';
-import MealList from '../components/MealList';
+import MealsList from '../components/MealList/MealsList';
 import {NavigationCategoryMeals, RouteCategoryMeals} from '../types';
 
 type Props = {
@@ -30,7 +30,7 @@ const CategoryMealScreen = ({route, navigation}: Props) => {
     meal => meal.categoryIds.indexOf(catId) >= 0,
   );
 
-  return <MealList listData={displayedMeals} navigation={navigation} />;
+  return <MealsList listData={displayedMeals} navigation={navigation} />;
 };
 
 export default CategoryMealScreen;

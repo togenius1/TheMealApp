@@ -11,7 +11,7 @@ import {
 
 // import DefaultText from './DefaultText';
 
-import MealDetails from './MealDetails';
+import MealDetails from '../MealDetails';
 
 type Props = {
   title: string;
