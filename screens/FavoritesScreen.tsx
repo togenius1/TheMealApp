@@ -1,6 +1,6 @@
 import React, {useLayoutEffect} from 'react';
 import {StyleSheet, View, Text} from 'react-native';
-import {useSelector, useDispatch} from 'react-redux';
+import {useSelector} from 'react-redux';
 
 import MealsList from '../components/MealList/MealsList';
 // import {FavoritesContext} from '../store/context/favorites-context';
